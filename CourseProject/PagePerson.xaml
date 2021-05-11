@@ -1,0 +1,50 @@
+﻿<Page x:Class="CourseProject.PagePerson"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CourseProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PagePerson">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="46*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Имя:" HorizontalAlignment="Left" Margin="239,14,0,0" VerticalAlignment="Top" Width="107" Height="34" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="60,5,5,5" Grid.Row="1"/>
+        <Label Content="Фамилия:" HorizontalAlignment="Left" Margin="232,11.667,0,0" VerticalAlignment="Top" Width="115" Height="30" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="24,5,5,5" Grid.Row="2"/>
+        <Label Content="Отчество:" HorizontalAlignment="Left" Margin="231,8,0,0" VerticalAlignment="Top" Width="114" Height="34" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="12,5,5,5" Grid.Row="3"/>
+        <Label Content="Серия паспорта:" HorizontalAlignment="Left" Margin="183,4,0,0" VerticalAlignment="Top" Width="162" Height="34" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="9,5,5,5" Grid.Row="4"/>
+        <Label Content="Номер паспорта:" HorizontalAlignment="Left" Margin="182,10.333,0,0" VerticalAlignment="Top" Width="162" Height="34" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="5" Grid.Row="5"/>
+        <Label Content="Номер телефона:" HorizontalAlignment="Left" Margin="182,16.667,0,0" VerticalAlignment="Top" Width="161" Height="34" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="0,5,5,5" Grid.Row="6"/>
+
+        <TextBox x:Name="NameEdit" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="353,19,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="158" Grid.Row="1"/>
+        <TextBox x:Name="LastNameEdit" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="353,15.667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.Row="2"/>
+        <TextBox x:Name="MiddleNameEdit" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="353,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.Row="3"/>
+        <TextBox x:Name="PhoneEdit" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="353,21.667,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Grid.Row="6"/>
+        <Label x:Name="SeriaPass" FontStyle="Italic" FontWeight="Medium" FontSize="15" HorizontalAlignment="Left" Margin="354,9,0,0" VerticalAlignment="Top" Width="122" Height="28" Grid.Row="4"/>
+        <Label x:Name="NumberPass" FontStyle="Italic" FontWeight="Medium" FontSize="15" HorizontalAlignment="Left" Margin="354,15.333,0,0" VerticalAlignment="Top" Width="124" Height="30" Grid.Row="5" Grid.RowSpan="2"/>
+        <Button x:Name="Edit" Foreground="Black" Content="Редактировать" HorizontalAlignment="Left" Margin="444,21.333,0,0" VerticalAlignment="Top" Width="135" FontStyle="Italic" FontWeight="Medium" FontSize="13" Height="25" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="Edit_Click" Grid.Row="7"/>
+        <Label Content="Личный кабинет" FontStyle="Italic" FontWeight="Medium" FontSize="25" HorizontalAlignment="Left" Margin="298,0,0,0" VerticalAlignment="Top" Width="238" Grid.RowSpan="2"/>
+        <Button x:Name="Save" Foreground="Black" Visibility="Hidden" Content="Сохранить" HorizontalAlignment="Left" Margin="326,21.333,0,0" VerticalAlignment="Top" Width="115" FontStyle="Italic" FontWeight="Medium" FontSize="13" Height="25" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="Save_Click" Grid.Row="7"/>
+        <Button x:Name="Reset" Foreground="Black" Visibility="Hidden" Content="Отмена" HorizontalAlignment="Left" Margin="193,21.333,0,0" VerticalAlignment="Top" Width="115" FontStyle="Italic" FontWeight="Medium" FontSize="13" Height="25" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="Reset_Click" Grid.Row="7"/>
+        <Label x:Name="MiddleName"  Content="" HorizontalAlignment="Left" Margin="354,10,0,0" VerticalAlignment="Top" Width="150" Height="33" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="9,5,5,5" Grid.Row="3"/>
+        <Label x:Name="Lastname"  Content="" HorizontalAlignment="Left" Margin="354,11.667,0,0" VerticalAlignment="Top" Width="150" Height="37" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="9,5,5,5" Grid.Row="2"/>
+        <Label x:Name="name" BorderBrush="Black" Content="" HorizontalAlignment="Left" Margin="354,14,0,0" VerticalAlignment="Top" Width="149" Height="36" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="9,5,5,5" Grid.Row="1"/>
+        <Label x:Name="Phone"  Content="" HorizontalAlignment="Left" Margin="355,18.667,0,0" VerticalAlignment="Top" Width="157" Height="34" BorderThickness="0" FontStyle="Italic" FontWeight="Medium" FontSize="18" Padding="9,5,5,5" Grid.Row="6"/>
+        <Label x:Name="Current"  Visibility="Hidden" Content="Текущие данные" FontStyle="Italic" FontWeight="Medium" FontSize="25" HorizontalAlignment="Left" Margin="558,-1,0,0" VerticalAlignment="Top" Width="238" Grid.RowSpan="2"/>
+        <Button x:Name="Delete" Foreground="Black" Content="Удалить" HorizontalAlignment="Left" Margin="584,21.333,0,0" VerticalAlignment="Top" Width="115" FontStyle="Italic" FontWeight="Medium" FontSize="13" Height="25" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="Delete_Click" Grid.Row="7"/>
+    </Grid>
+</Page>

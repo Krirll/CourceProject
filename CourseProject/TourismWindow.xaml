@@ -1,0 +1,28 @@
+﻿<Window x:Class="CourseProject.TourismWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject"
+        mc:Ignorable="d"
+        Title="Туристическая фирма" Height="500" Width="485" MinHeight="500" MinWidth="485"
+        x:Name="Window">
+    <Grid >
+        <Rectangle Width="auto" Height="auto">
+            <Rectangle.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="LightBlue" Offset="1" />
+                    <GradientStop Color="LightYellow" Offset="0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="Trips" Foreground="Black" Content="Путевки" HorizontalAlignment="Left" Margin="150,60,0,0" VerticalAlignment="Top" FontStyle="Italic" FontWeight="Medium" FontSize="15" Width="165" Height="46" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="Trips_Click"/>
+        <Button x:Name="Selected" Foreground="Black" Content="Отложенные" HorizontalAlignment="Left" Margin="150,150,0,0" VerticalAlignment="Top" FontStyle="Italic" FontWeight="Medium" FontSize="15" Width="167" Height="46" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="Selected_Click"/>
+        <Button x:Name="Cabinet" Foreground="Black" Content="Личный кабинет" HorizontalAlignment="Left" Margin="150,240,0,0" VerticalAlignment="Top" FontStyle="Italic" FontWeight="Medium" FontSize="15" Width="164" Height="46" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="Cabinet_Click"/>
+        <Label x:Name="Author"  Content="Автор проекта: Балалаев Кирилл, группа ПКС-304" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="309" Foreground="#FFF51414" FontStyle="Italic"/>
+        <Button x:Name="Exit" Foreground="Black" Content="Выход" FontSize="15" Background="#FFE53F53" FontStyle="Italic" Click="Exit_Click" HorizontalAlignment="Right" Width="79" Height="27" VerticalAlignment="Top"/>
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" Margin="238,31,23.667,17.667"/>
+        <Button x:Name="Back" Content="Назад" FontSize="15" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Top" Width="77" Visibility="Hidden" Background="#FFE53F53" FontStyle="Italic"  Click="Back_Click" Margin="0,0,82.667,0" Height="27"/>
+        <Button x:Name="History" Foreground="Black" Content="История" HorizontalAlignment="Left" Margin="150,330,0,0" VerticalAlignment="Top" FontStyle="Italic" FontWeight="Medium" FontSize="15" Width="165" Height="46" BorderBrush="#FF045755" Background="#FF3FE5E5" Click="History_Click"/>
+    </Grid>
+</Window>

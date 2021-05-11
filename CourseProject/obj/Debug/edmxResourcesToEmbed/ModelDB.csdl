@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TourismModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Tours">
+    <Key>
+      <PropertyRef Name="Num_tour" />
+    </Key>
+    <Property Name="Num_tour" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name_tour" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Num_city" Type="Int32" Nullable="false" />
+    <Property Name="Date_begin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Date_end" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ActualCount" Type="Int32" Nullable="false" />
+    <Property Name="CountTrips" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Images" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="PushListView">
+    <Key>
+      <PropertyRef Name="Name_tour" />
+      <PropertyRef Name="Price" />
+    </Key>
+    <Property Name="Name_tour" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ActualCount" Type="Int32" Nullable="false" />
+    <Property Name="Images" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="TourismEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Tours" EntityType="Self.Tours" />
+    <EntitySet Name="PushListView" EntityType="Self.PushListView" />
+  </EntityContainer>
+</Schema>

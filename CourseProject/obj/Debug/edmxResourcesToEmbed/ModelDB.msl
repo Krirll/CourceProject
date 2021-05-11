@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TourismModelContainer" CdmEntityContainer="TourismEntities">
+    <EntitySetMapping Name="Tours">
+      <EntityTypeMapping TypeName="TourismModel.Tours">
+        <MappingFragment StoreEntitySet="Tours">
+          <ScalarProperty Name="Num_tour" ColumnName="Num_tour" />
+          <ScalarProperty Name="Name_tour" ColumnName="Name_tour" />
+          <ScalarProperty Name="Num_city" ColumnName="Num_city" />
+          <ScalarProperty Name="Date_begin" ColumnName="Date_begin" />
+          <ScalarProperty Name="Date_end" ColumnName="Date_end" />
+          <ScalarProperty Name="ActualCount" ColumnName="ActualCount" />
+          <ScalarProperty Name="CountTrips" ColumnName="CountTrips" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PushListView">
+      <EntityTypeMapping TypeName="TourismModel.PushListView">
+        <MappingFragment StoreEntitySet="PushListView">
+          <ScalarProperty Name="Name_tour" ColumnName="Name_tour" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ActualCount" ColumnName="ActualCount" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

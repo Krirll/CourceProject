@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TourismModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tours">
+    <Key>
+      <PropertyRef Name="Num_tour" />
+    </Key>
+    <Property Name="Num_tour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_tour" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Num_city" Type="int" Nullable="false" />
+    <Property Name="Date_begin" Type="date" Nullable="false" />
+    <Property Name="Date_end" Type="date" Nullable="false" />
+    <Property Name="ActualCount" Type="int" Nullable="false" />
+    <Property Name="CountTrips" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Images" Type="varbinary(max)" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Tourism.dbo.PushListView" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="PushListView">
+    <Key>
+      <PropertyRef Name="Name_tour" />
+      <PropertyRef Name="Price" />
+    </Key>
+    <Property Name="Name_tour" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="ActualCount" Type="int" Nullable="false" />
+    <Property Name="Images" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="Хранилище TourismModelContainer">
+    <EntitySet Name="Tours" EntityType="Self.Tours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PushListView" EntityType="Self.PushListView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PushListView].[Name_tour] AS [Name_tour], 
+    [PushListView].[Price] AS [Price], 
+    [PushListView].[ActualCount] AS [ActualCount], 
+    [PushListView].[Images] AS [Images]
+    FROM [dbo].[PushListView] AS [PushListView]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

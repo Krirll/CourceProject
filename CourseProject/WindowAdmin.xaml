@@ -1,0 +1,55 @@
+﻿<Window x:Class="CourseProject.WindowAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject"
+        mc:Ignorable="d"
+        Title="WindowAdmin" Height="430" Width="780.667" MinHeight="450" MinWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="345*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Width="auto" Height="auto" Grid.RowSpan="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush>
+                    <GradientStop Color="LightBlue" Offset="1" />
+                    <GradientStop Color="LightYellow" Offset="0" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button x:Name="Exit" Content="Выход" FontSize="15" HorizontalAlignment="Right"  VerticalAlignment="Top" Width="79" Background="#FFE53F53" Foreground="Black" FontStyle="Italic" Click="Exit_Click"  Height="27" Margin="0,0,0.333,0"/>
+        <DataGrid x:Name="datagrid" Margin="0,0.667,0.333,3" Grid.Row="1" IsReadOnly="True" CanUserAddRows="False" CellEditEnding="datagrid_CellEditEnding" BeginningEdit="datagrid_BeginningEdit">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Выбрать" Width="100" Foreground="Black" Background="#FF3FE5E5" Click="Button_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Margin="79,-4,287.333,0.333" HorizontalAlignment="Center" Width="427">
+            <ComboBox x:Name="tables" HorizontalAlignment="Right" Width="213" Height="30" Margin="0,4,10,0" SelectionChanged="tables_SelectionChanged"/>
+            <Label Content="Выберите таблицу" Margin="0,0,255,2" FontSize="17" FontStyle="Italic" FontWeight="Medium"/>
+        </Grid>
+        <Grid Margin="30,1,30.333,12.667" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="144*"/>
+                <ColumnDefinition Width="164*"/>
+                <ColumnDefinition Width="147*"/>
+                <ColumnDefinition Width="149*"/>
+                <ColumnDefinition Width="129*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="Delete" Visibility="Hidden" Content="Удалить" Background="#FF3FE5E5" Foreground="Black"  Margin="16,-1,17.333,-2" FontSize="15" FontWeight="Medium" FontStyle="Italic" Click="Delete_Click" Grid.Column="2"/>
+            <Button x:Name="Update" Visibility="Hidden" Content="Изменить" Background="#FF3FE5E5" Foreground="Black" Margin="18,-2,30,-1" FontSize="15" FontWeight="Medium" FontStyle="Italic" Click="Update_Click" Grid.Column="1"/>
+            <Button x:Name="AddNew" Visibility="Hidden" Content="Добавить" Background="#FF3FE5E5" Foreground="Black" Margin="0,-2,28,-1" FontSize="15" FontWeight="Medium" FontStyle="Italic" Click="AddNew_Click"/>
+            <Button x:Name="Save" Visibility="Hidden" Content="Сохранить" Background="#FF3FE5E5" Foreground="Black" Margin="16.667,-1,17.667,-2" FontSize="15" FontWeight="Medium" FontStyle="Italic" Click="Save_Click" Grid.Column="3"/>
+            <Button x:Name="Reset" Visibility="Hidden" Content="Отмена" Background="#FF3FE5E5" Foreground="Black" Margin="15.333,-1,0.333,-2" FontSize="15" FontWeight="Medium" FontStyle="Italic" Click="Reset_Click" Grid.Column="4"/>
+        </Grid>
+    </Grid>
+</Window>
