@@ -31,7 +31,6 @@ C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\WindowChoise.g.cs
 C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\WindowChoise.baml
 C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\WindowAdmin.g.cs
 C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\WindowAdmin.baml
-C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.csprojAssemblyReference.cache
 C:\Users\1\source\repos\CourseProject\CourseProject\bin\Debug\MaterialDesignColors.dll
 C:\Users\1\source\repos\CourseProject\CourseProject\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\1\source\repos\CourseProject\CourseProject\bin\Debug\MaterialDesignColors.pdb

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CourseProject"
         mc:Ignorable="d"
-        Title="WindowAdmin" Height="430" Width="780.667" MinHeight="450" MinWidth="800">
+        Title="Администратор" Height="430" Width="780.667" MinHeight="450" MinWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="33*"/>
