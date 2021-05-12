@@ -78,7 +78,7 @@ namespace CourseProject
                                                             }
                                                             if (flag != -2)
                                                             {
-                                                                MessageBox.Show("Регистрация прошла успешно.\nПройдите авторизацию для дальнейшего использования.");
+                                                                MessageBox.Show("Регистрация прошла успешно.\nПройдите авторизацию для дальнейшего использования.", "", MessageBoxButton.OK, MessageBoxImage.Information);
                                                                 MainWindow mw = new MainWindow();
                                                                 mw.Show();
                                                                 Close();
@@ -182,10 +182,10 @@ namespace CourseProject
             Close();
             System.GC.Collect();
         }
-        private void ShowError(string error) => MessageBox.Show(error + '\n' + "Попробуйте снова.");
+        private void ShowError(string error) => MessageBox.Show(error + '\n' + "Попробуйте снова.", "", MessageBoxButton.OK, MessageBoxImage.Error);
         private void ShowConnectionError()
         {
-            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.");
+            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.", "", MessageBoxButton.OK, MessageBoxImage.Error);
             foreach (Window window in Application.Current.Windows)
             {
                 if (window is WindowRegistration)

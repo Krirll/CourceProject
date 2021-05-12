@@ -61,7 +61,7 @@ namespace CourseProject
         }
         public static void ShowConnectionError()
         {
-            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.");
+            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.", "", MessageBoxButton.OK, MessageBoxImage.Error);
             foreach (Window window in Application.Current.Windows)
             {
                 if (window is TourismWindow)

@@ -61,7 +61,7 @@ namespace CourseProject
                 }
                 else ShowError();
             }
-            else MessageBox.Show("Необходимо ввести пароль и логин.");
+            else MessageBox.Show("Необходимо ввести пароль и логин.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
         private void Registr_Click(object sender, RoutedEventArgs e)
         {
@@ -72,13 +72,13 @@ namespace CourseProject
         }
         private void ShowError()
         {
-            MessageBox.Show("Неверно введен логин или пароль." + '\n' + "Попробуйте снова.");
+            MessageBox.Show("Неверно введен логин или пароль." + '\n' + "Попробуйте снова.", "", MessageBoxButton.OK, MessageBoxImage.Error);
             Login.Text = "";
             Password.Password = "";
         }
         private void ShowConnectionError()
         {
-            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.");
+            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.", "", MessageBoxButton.OK, MessageBoxImage.Error);
             Login.Text = "";
             Password.Password = "";
         }

@@ -75,17 +75,17 @@ namespace CourseProject
             {
                 if (DateBegin.SelectedDate >= DateEnd.SelectedDate)
                 {
-                    MessageBox.Show("Дата начала не может быть\nбольше даты окончания путевки.");
+                    MessageBox.Show("Дата начала не может быть\nбольше даты окончания путевки.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                     DateBegin.Text = "";
                 }
                 else if (DateBegin.SelectedDate > DateTime.Today.AddYears(1))
                 {
-                    MessageBox.Show("Нет путевок на год вперед.");
+                    MessageBox.Show("Нет путевок на год вперед.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                     DateBegin.Text = "";
                 }
-                else if (DateBegin.SelectedDate < DateTime.Today.AddDays(1))
+                else if (DateBegin.SelectedDate < DateTime.Today)
                 {
-                    MessageBox.Show("Можно смотреть путевки от завтрашнего дня и позднее.");
+                    MessageBox.Show("Можно смотреть путевки от сегодняшнего дня дня и позднее.", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -95,12 +95,12 @@ namespace CourseProject
             {
                 if (DateEnd.SelectedDate <= DateBegin.SelectedDate)
                 {
-                    MessageBox.Show("Дата окончания не может быть\nменьше даты начала путевки.");
+                    MessageBox.Show("Дата окончания не может быть\nменьше даты начала путевки.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                     DateEnd.Text = "";
                 }
                 else if (DateEnd.SelectedDate > DateTime.Today.AddYears(1))
                 {
-                    MessageBox.Show("Нет путевок на год вперед.");
+                    MessageBox.Show("Нет путевок на год вперед.", "", MessageBoxButton.OK, MessageBoxImage.Information);
                     DateEnd.Text = "";
                 }
             }

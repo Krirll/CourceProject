@@ -29,7 +29,7 @@ namespace CourseProject
                 { "Decimal", @"^\d*(?(?=\d.{1}\d)\d*.{1}\d*)$"}
             };
             if ((tables = DataManager.PushComboBox(tables, "name", "SELECT name FROM sys.tables " +
-                                                  "WHERE name != 'sysdiagrams' AND name != 'Trips' AND name != 'Accounts' AND name != 'Admins' AND name != 'Passwords'")) == null)
+                                                  "WHERE name != 'sysdiagrams' AND name != 'Trips' AND name != 'Accounts' AND name != 'Passwords'")) == null)
             {
                 ShowConnectionError();
             } 
@@ -55,21 +55,25 @@ namespace CourseProject
         }
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            int flag = sqlManager.Delete("DELETE FROM " + (tables.SelectedItem as DataRowView).Row.ItemArray[0].ToString() +
-                                         " WHERE " + dataTable.Columns[0] + " = " + (datagrid.SelectedItem as DataRowView).Row.ItemArray[0]);
-            if (flag == 0) MessageBox.Show("Запись невозможно удалить из-за ограничения!");
-            else if (flag == -2) ShowConnectionError();
-            else
+            MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите удалить эту запись?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                dataTable.Rows.Remove((datagrid.SelectedItem as DataRowView).Row);
-                ShowTable();
-                MessageBox.Show("Запись успешно удалена.");
+                int flag = sqlManager.Delete("DELETE FROM " + (tables.SelectedItem as DataRowView).Row.ItemArray[0].ToString() +
+                                             " WHERE " + dataTable.Columns[0] + " = " + (datagrid.SelectedItem as DataRowView).Row.ItemArray[0]);
+                if (flag == 0) MessageBox.Show("Запись невозможно удалить из-за ограничения!", "", MessageBoxButton.OK, MessageBoxImage.Error);
+                else if (flag == -2) ShowConnectionError();
+                else
+                {
+                    dataTable.Rows.Remove((datagrid.SelectedItem as DataRowView).Row);
+                    ShowTable();
+                    MessageBox.Show("Запись успешно удалена.", "", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                AddNew.Visibility = Visibility.Visible;
+                Update.Visibility = Visibility.Hidden;
+                Delete.Visibility = Visibility.Hidden;
+                Save.Visibility = Visibility.Hidden;
+                Reset.Visibility = Visibility.Hidden;
             }
-            AddNew.Visibility = Visibility.Visible;
-            Update.Visibility = Visibility.Hidden;
-            Delete.Visibility = Visibility.Hidden;
-            Save.Visibility = Visibility.Hidden;
-            Reset.Visibility = Visibility.Hidden;
         }
         private void Update_Click(object sender, RoutedEventArgs e)
         {
@@ -84,7 +88,7 @@ namespace CourseProject
             Update.Visibility = Visibility.Hidden;
             Delete.Visibility = Visibility.Hidden;
             Save.Visibility = Visibility.Visible;
-            if (error != true) MessageBox.Show("Измените поля и нажмите \"Сохранить\".");
+            if (error != true) MessageBox.Show("Измените поля и нажмите \"Сохранить\".", "", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void AddNew_Click(object sender, RoutedEventArgs e)
         {
@@ -96,7 +100,7 @@ namespace CourseProject
             Reset.Visibility = Visibility.Visible;
             Save.Visibility = Visibility.Visible;
             AddNew.Visibility = Visibility.Hidden;
-            MessageBox.Show("Заполните пустые поля и нажмите \"Сохранить\".\nВвод данных осуществляется только в первой строке!");
+            MessageBox.Show("Заполните пустые поля и нажмите \"Сохранить\".\nВвод данных осуществляется только в первой строке!", "", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void datagrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
@@ -119,7 +123,7 @@ namespace CourseProject
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Изменения не зафиксированы, некорректный ввод!\nДата вводится по формату dd.mm.yyyy");
+                                    MessageBox.Show("Изменения не зафиксированы, некорректный ввод!\nДата вводится по формату dd.mm.yyyy", "", MessageBoxButton.OK, MessageBoxImage.Error);
                                     e.Cancel = true;
                                 }
                             }
@@ -138,7 +142,7 @@ namespace CourseProject
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Строка с таким номером не найдена!");
+                                        MessageBox.Show("Строка с таким номером не найдена!", "", MessageBoxButton.OK, MessageBoxImage.Error);
                                         e.Cancel = true;
                                     }
 
@@ -150,7 +154,7 @@ namespace CourseProject
                             }
                             else
                             {
-                                MessageBox.Show("Изменения не зафиксированы, некорректный ввод!");
+                                MessageBox.Show("Изменения не зафиксированы, некорректный ввод!", "", MessageBoxButton.OK, MessageBoxImage.Error);
                                 e.Cancel = true;
                             }
                         }
@@ -166,7 +170,7 @@ namespace CourseProject
                     }
                     else
                     {
-                        MessageBox.Show("Изменения не зафиксированы,\nв этом столбце запрещены значения NULL!");
+                        MessageBox.Show("Изменения не зафиксированы,\nв этом столбце запрещены значения NULL!", "", MessageBoxButton.OK, MessageBoxImage.Error);
                         e.Cancel = true;
                     }
                 }
@@ -179,7 +183,7 @@ namespace CourseProject
             {
                 if (dataTable.Rows.Count != 0)
                 {
-                    MessageBoxResult result = MessageBox.Show("Да - удалить фотографию, Нет - изменить/добавить", "", MessageBoxButton.YesNoCancel);
+                    MessageBoxResult result = MessageBox.Show("Да - удалить фотографию, Нет - изменить/добавить", "", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
@@ -197,7 +201,7 @@ namespace CourseProject
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Неверный формат");
+                                    MessageBox.Show("Неверный формат", "", MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
                             }
                             break;
@@ -208,7 +212,7 @@ namespace CourseProject
                 }
                 else if (dataTable.Rows.Count == 0)
                 {
-                    MessageBox.Show("Работа с изображениями доступна\nтолько в режиме редактирования.");
+                    MessageBox.Show("Работа с изображениями доступна\nтолько в режиме редактирования.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                     datagrid.ItemsSource = dataTable.AsDataView();
                 }
             }   
@@ -228,7 +232,7 @@ namespace CourseProject
                     if ((cell.Column.GetCellContent(cell.Item) as TextBlock).Text == "" && dataTable.Columns[i-1].AllowDBNull == false)
                     {
                         checkError = true;
-                        MessageBox.Show($"Ячейка в столбце №{i} не может быть пустой!");
+                        MessageBox.Show($"Ячейка в столбце №{i} не может быть пустой!", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     i++;
                 }
@@ -238,7 +242,7 @@ namespace CourseProject
                     if (flag == -1)
                     {
                         checkError = true;
-                        MessageBox.Show("Не удалось сохранить изменения!\nПроверьте правильность введенных данных.");
+                        MessageBox.Show("Не удалось сохранить изменения!\nПроверьте правильность введенных данных.", "", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     else if (flag == -2)
                     {
@@ -254,7 +258,7 @@ namespace CourseProject
                         Save.Visibility = Visibility.Hidden;
                         Reset.Visibility = Visibility.Hidden;
                         datagrid.IsReadOnly = true;
-                        if (error != true) MessageBox.Show("Запись успешно добавлена!");
+                        if (error != true) MessageBox.Show("Запись успешно добавлена!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
             }
@@ -264,7 +268,7 @@ namespace CourseProject
                 int flag = sqlManager.UpdateRow(dataTable.TableName, dataTable.Rows[0].ItemArray.ToList(), dataTable.Columns);
                 if (flag == -1)
                 {
-                    MessageBox.Show("Не удалось добавить строку!\nПроверьте правильность введенных данных.");
+                    MessageBox.Show("Не удалось добавить строку!\nПроверьте правильность введенных данных.", "", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else if (flag == -2)
                 {
@@ -279,7 +283,7 @@ namespace CourseProject
                     Save.Visibility = Visibility.Hidden;
                     Reset.Visibility = Visibility.Hidden;
                     datagrid.IsReadOnly = true;
-                    if (error != true) MessageBox.Show("Запись успешно изменена!");
+                    if (error != true) MessageBox.Show("Запись успешно изменена!", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }
@@ -346,7 +350,7 @@ namespace CourseProject
         }
         private void ShowConnectionError()
         {
-            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.");
+            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.", "", MessageBoxButton.OK, MessageBoxImage.Error);
             foreach (Window window in Application.Current.Windows)
             {
                 if (window is WindowAdmin)

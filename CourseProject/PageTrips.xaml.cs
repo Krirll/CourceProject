@@ -19,7 +19,7 @@ namespace CourseProject
             {
                 if (LVTours.Items.Count == 0)
                 {
-                    MessageBox.Show("Отсутствуют путевки по заданным фильтрам.");
+                    MessageBox.Show("Отсутствуют путевки по заданным фильтрам.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                     Sort.SelectedIndex = -1;
                     Search.Text = "";
                 }
@@ -62,11 +62,11 @@ namespace CourseProject
                 if (Convert.ToDateTime(item.DateBegin).Date > DateTime.Today.Date)
                 {
                     Item.items.Add(item);
-                    MessageBox.Show("Путевка успешно добавлена в \"Отложенные\".");
+                    MessageBox.Show("Путевка успешно добавлена в \"Отложенные\".", "", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                else MessageBox.Show("Эта путевка уже неактуальна.");
+                else MessageBox.Show("Эта путевка уже неактуальна.", "", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-            else MessageBox.Show("Вы уже добавили эту путевку в \"Отложенные\".");
+            else MessageBox.Show("Вы уже добавили эту путевку в \"Отложенные\".", "", MessageBoxButton.OK, MessageBoxImage.Warning);
             System.GC.Collect();
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateListView();

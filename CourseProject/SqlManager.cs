@@ -464,6 +464,8 @@ namespace CourseProject
             }
             catch (SqlException ex)
             {
+                if (connection.State == ConnectionState.Open) connection.Close();
+                if (ex.Number == 547) res = -1;
                 Console.WriteLine(ex.Message);
             }
             return res;

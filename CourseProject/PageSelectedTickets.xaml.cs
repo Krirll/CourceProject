@@ -121,7 +121,7 @@ namespace CourseProject
                             }
                             else
                             {
-                                MessageBox.Show("Билеты закончились!");
+                                MessageBox.Show("Билеты закончились!", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                                 item = Item.items.Find(x => x.NameTour == (SelectedTrips.SelectedItem as Item).NameTour);
                                 Item.items.Remove(item);
                                 SelectedTrips.Items.Remove(SelectedTrips.SelectedItem);

@@ -158,7 +158,7 @@ namespace CourseProject
             MiddleName.Margin = new Thickness(560, 14, 0, 0);
             Phone.Margin = new Thickness(560, 14, 0, 0);
         }
-        private void ShowError(string error) => MessageBox.Show(error + '\n' + "Попробуйте снова.");
+        private void ShowError(string error) => MessageBox.Show(error + '\n' + "Попробуйте снова.", "", MessageBoxButton.OK, MessageBoxImage.Error);
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult res = MessageBox.Show("Вы уверены, что хотите удалить свой аккаунт?", "", MessageBoxButton.YesNo, MessageBoxImage.Question);

@@ -41,7 +41,7 @@ namespace CourseProject
                             }
                             else
                             {
-                                MessageBox.Show("Пароль неверный");
+                                MessageBox.Show("Пароль неверный", "", MessageBoxButton.OK, MessageBoxImage.Error);
                                 passAdmin.Password = "";
                             }
                         }
@@ -52,7 +52,7 @@ namespace CourseProject
                     }
                     else
                     {
-                        MessageBox.Show("Пароль неверный");
+                        MessageBox.Show("Пароль неверный", "", MessageBoxButton.OK, MessageBoxImage.Error);
                         passAdmin.Password = "";
                     }
                 }
@@ -75,7 +75,7 @@ namespace CourseProject
                             }
                             else
                             {
-                                MessageBox.Show("Пароль неверный");
+                                MessageBox.Show("Пароль неверный", "", MessageBoxButton.OK, MessageBoxImage.Error);
                                 passAdmin.Password = "";
                             }
                         }
@@ -86,12 +86,12 @@ namespace CourseProject
                     }
                     else
                     {
-                        MessageBox.Show("Пароль неверный");
+                        MessageBox.Show("Пароль неверный", "", MessageBoxButton.OK, MessageBoxImage.Error);
                         passWorker.Password = "";
                     }
                 }
             }
-            else MessageBox.Show("Необходимо выбрать!\nДля отмены нажмите \"Назад\".");
+            else MessageBox.Show("Необходимо выбрать!\nДля отмены нажмите \"Назад\".", "", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
@@ -126,7 +126,7 @@ namespace CourseProject
         }
         private void ShowConnectionError()
         {
-            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.");
+            MessageBox.Show("Отсутствует соединение с сервером,\nповторите попытку позже.", "", MessageBoxButton.OK, MessageBoxImage.Error);
             foreach (Window window in Application.Current.Windows)
             {
                 if (window is WindowChoise)

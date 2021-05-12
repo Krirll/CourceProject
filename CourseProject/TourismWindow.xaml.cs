@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace CourseProject
 {
@@ -91,9 +92,9 @@ namespace CourseProject
                         ChangeWindow(true);
                         System.GC.Collect();
                     }
-                    else MessageBox.Show("Вы не выбрали ни одной путевки.");
+                    else MessageBox.Show("Вы не выбрали ни одной путевки.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-                else MessageBox.Show("Вы не выбрали ни одной путевки.");
+                else MessageBox.Show("Вы не выбрали ни одной путевки.", "", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         private void Cabinet_Click(object sender, RoutedEventArgs e)
