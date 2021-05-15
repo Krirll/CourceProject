@@ -38,3 +38,4 @@ C:\Users\1\source\repos\CourseProject\CourseProject\bin\Debug\MaterialDesignThem
 C:\Users\1\source\repos\CourseProject\CourseProject\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\App.baml
 C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.csproj.CopyComplete
+C:\Users\1\source\repos\CourseProject\CourseProject\obj\Debug\CourseProject.csprojAssemblyReference.cache
